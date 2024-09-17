@@ -19,3 +19,45 @@ def test_instance_is_instantiated_with_given_max_size_property():
 def test_instance_is_instantiated_with_unlimited_max_size_given_no_arg():
     test_stack = Stack()
     assert test_stack.max_size == None
+
+def test_push_method_adds_item_to_stack_storage():
+    # Arrange
+    test_stack = Stack()
+    # Act
+    test_stack.push("apple")
+    # Assert
+    assert test_stack.storage == {0: "apple"}
+
+def test_push_method_adds_multiple_items_to_stack_storage():
+    # Arrange
+    test_stack = Stack()
+    # Act
+    test_stack.push("apple")
+    test_stack.push("banana")
+    # Assert
+    assert test_stack.storage == {0: "apple", 1: "banana"}
+
+def test_push_method_updates_quantity_property():
+    # Arrange
+    test_stack = Stack()
+    # Act
+    test_stack.push("apple")
+    # Assert
+    assert test_stack.quantity == 1
+
+    # Arrange
+    test_stack = Stack()
+    # Act
+    test_stack.push("apple")
+    test_stack.push("banana")
+    # Assert
+    assert test_stack.quantity == 2
+
+def test_push_method_returns_message_if_stack_full():
+    # Arrange
+    test_stack = Stack(1)
+    # Act
+    test_stack.push("apple")
+    # Assert
+    assert test_stack.push("banana") == "Stack storage is full"
+    assert test_stack.storage == {0: "apple"}
