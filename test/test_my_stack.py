@@ -107,3 +107,22 @@ def test_is_full_method_checks_storage_and_returns_boolean():
     test_stack = Stack(1)
     test_stack.push("apple")
     assert test_stack.is_full() is True
+
+def test_peek_method_returns_item_at_top_of_stack():
+    # Arrange
+    test_stack = Stack()
+    test_stack.push("apple")
+    test_stack.push("banana")
+    test_stack.push("orange")
+    # Act
+    result = test_stack.peek()
+    # Assert 
+    assert result == "orange"
+
+def test_peek_method_returns_message_if_stack_is_empty():
+    # Arrange
+    test_stack = Stack()
+    # Act
+    result = test_stack.peek()
+    # Assert
+    assert result == "Stack is empty"

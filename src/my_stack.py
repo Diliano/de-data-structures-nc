@@ -23,3 +23,8 @@ class Stack():
     
     def is_full(self):
         return self.quantity == self.max_size
+    
+    def peek(self):
+        if self.quantity == 0:
+            return "Stack is empty"
+        return self.storage[self.quantity - 1]
