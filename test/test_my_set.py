@@ -23,5 +23,6 @@ class TestAddMethod():
         test_set = Set()
         # Act
         test_set.add("apple")   
+        test_set.add("apple")   
         # Assert
-        assert test_set.add("apple") == "No duplicates allowed"
+        assert test_set._elements == ["apple"]
