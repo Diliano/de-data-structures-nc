@@ -61,3 +61,32 @@ def test_push_method_returns_message_if_stack_full():
     # Assert
     assert test_stack.push("banana") == "Stack storage is full"
     assert test_stack.storage == {0: "apple"}
+
+def test_pop_method_removes_item_from_storage_and_returns_it():
+    # Arrange
+    test_stack = Stack()
+    # Act
+    test_stack.push("apple")
+    test_stack.push("banana")
+    # Assert
+    assert test_stack.pop() == "banana"
+    assert test_stack.storage == {0: "apple"}
+
+def test_pop_method_returns_message_if_stack_empty():
+    # Arrange
+    test_stack = Stack()
+    # Act
+    test_stack.push("apple")
+    test_stack.pop()
+    # Assert
+    assert test_stack.pop() == "Stack is empty"
+
+def test_pop_method_updates_quantity():
+    # Arrange
+    test_stack = Stack()
+    # Act
+    test_stack.push("apple")
+    # Assert
+    assert test_stack.quantity == 1
+    test_stack.pop()
+    assert test_stack.quantity == 0
