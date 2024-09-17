@@ -98,3 +98,12 @@ def test_is_empty_method_checks_storage_and_returns_boolean():
     test_stack = Stack()
     test_stack.push("apple")
     assert test_stack.is_empty() is False
+
+def test_is_full_method_checks_storage_and_returns_boolean():
+    test_stack = Stack()
+    test_stack.push("apple")
+    assert test_stack.is_full() is False
+
+    test_stack = Stack(1)
+    test_stack.push("apple")
+    assert test_stack.is_full() is True

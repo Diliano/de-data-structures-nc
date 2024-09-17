@@ -20,3 +20,6 @@ class Stack():
     
     def is_empty(self):
         return self.quantity == 0
+    
+    def is_full(self):
+        return self.quantity == self.max_size
