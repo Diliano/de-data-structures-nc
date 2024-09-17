@@ -94,3 +94,37 @@ class TestDequeueMethod:
     def test_dequeue_method_returns_message_if_queue_is_empty(self):
         test_queue = Queue()
         assert test_queue.dequeue() == "Queue is empty"
+
+class TestGetQuantityMethod:
+    def test_get_quantity_method_returns_0_if_queue_is_empty(self):
+        test_queue = Queue()
+        assert test_queue.get_quantity() == 0
+
+    def test_get_quantity_method_calculates_and_returns_queue_quantity(self):
+        # Arrange
+        test_queue = Queue()
+        # Act
+        test_queue.enqueue("apple") 
+        test_queue.enqueue("banana") 
+        test_queue.enqueue("orange") 
+        # Assert
+        assert test_queue.get_quantity() == 3
+
+        # Arrange
+        test_queue = Queue()
+        # Act
+        test_queue.enqueue("apple") 
+        test_queue.enqueue("banana") 
+        test_queue.enqueue("orange") 
+        test_queue.dequeue()
+        # Assert
+        assert test_queue.get_quantity() == 2
+
+class TestIsEmptyMethod:
+    def test_checks_if_queue_is_empty_or_not_and_returns_boolean(self):
+        test_queue = Queue()
+        assert test_queue.is_empty() == True
+
+        test_queue = Queue()
+        test_queue.enqueue("apple")
+        assert test_queue.is_empty() == False

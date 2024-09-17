@@ -16,3 +16,9 @@ class Queue():
             return "Queue is empty"
         del self._storage[self._front]
         self._front += 1
+
+    def get_quantity(self):
+        return len(self._storage)
+    
+    def is_empty(self):
+        return len(self._storage) == 0
