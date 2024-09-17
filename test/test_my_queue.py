@@ -128,3 +128,20 @@ class TestIsEmptyMethod:
         test_queue = Queue()
         test_queue.enqueue("apple")
         assert test_queue.is_empty() == False
+
+class TestIsFullMethod:
+    def test_checks_if_queue_is_full_or_not_and_returns_boolean(self):
+        # Arrange
+        test_queue = Queue(2)
+        # Act
+        test_queue.enqueue("apple")
+        test_queue.enqueue("banana")
+        # Assert
+        assert test_queue.is_full() == True
+
+        # Arrange
+        test_queue = Queue(2)
+        # Act
+        test_queue.enqueue("apple")
+        # Assert
+        assert test_queue.is_full() == False

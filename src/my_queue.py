@@ -22,3 +22,6 @@ class Queue():
     
     def is_empty(self):
         return len(self._storage) == 0
+    
+    def is_full(self):
+        return len(self._storage) == self.max_size
