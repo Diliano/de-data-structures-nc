@@ -57,3 +57,40 @@ class TestEnqueueMethod:
         test_queue.enqueue("banana")
         # Assert
         assert test_queue.enqueue("orange") == "Queue is full"
+
+class TestDequeueMethod:
+    def test_dequeue_method_removes_item_from_front_of_queue(self):
+        # Arrange
+        test_queue = Queue()
+        # Act
+        test_queue.enqueue("apple")
+        test_queue.enqueue("banana")
+        test_queue.dequeue()
+        # Assert
+        assert test_queue._storage == {1: "banana"}
+
+    def test_dequeue_method_updates_front_position(self):
+        # Arrange
+        test_queue = Queue()
+        # Act
+        test_queue.enqueue("apple") 
+        test_queue.enqueue("banana") 
+        test_queue.dequeue()  
+        # Assert
+        assert test_queue._front == 1
+
+    def test_dequeue_method_removes_multiple_items_from_front_of_queue(self):
+        # Arrange
+        test_queue = Queue()
+        # Act
+        test_queue.enqueue("apple") 
+        test_queue.enqueue("banana") 
+        test_queue.enqueue("orange") 
+        test_queue.dequeue()
+        test_queue.dequeue()
+        # Assert
+        assert test_queue._storage == {2: "orange"}
+
+    def test_dequeue_method_returns_message_if_queue_is_empty(self):
+        test_queue = Queue()
+        assert test_queue.dequeue() == "Queue is empty"

@@ -10,3 +10,9 @@ class Queue():
             return "Queue is full"
         self._storage[self._back] = item
         self._back += 1
+
+    def dequeue(self):
+        if len(self._storage) == 0:
+            return "Queue is empty"
+        del self._storage[self._front]
+        self._front += 1
