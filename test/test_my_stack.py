@@ -11,3 +11,11 @@ def test_instance_is_instantiated_with_quantity_property_0():
 def test_instance_is_instantiated_with_empty_dict_storage_property():
     test_stack = Stack()
     assert test_stack.storage == {}
+
+def test_instance_is_instantiated_with_given_max_size_property():
+    test_stack = Stack(5)
+    assert test_stack.max_size == 5
+
+def test_instance_is_instantiated_with_0_max_size_given_no_arg():
+    test_stack = Stack()
+    assert test_stack.max_size == 0
