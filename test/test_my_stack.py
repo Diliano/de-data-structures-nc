@@ -18,7 +18,7 @@ def test_instance_is_instantiated_with_given_max_size_property():
 
 def test_instance_is_instantiated_with_unlimited_max_size_given_no_arg():
     test_stack = Stack()
-    assert test_stack.max_size == None
+    assert test_stack.max_size is None
 
 def test_push_method_adds_item_to_stack_storage():
     # Arrange
@@ -90,3 +90,11 @@ def test_pop_method_updates_quantity():
     assert test_stack.quantity == 1
     test_stack.pop()
     assert test_stack.quantity == 0
+
+def test_is_empty_method_checks_storage_and_returns_boolean():
+    test_stack = Stack()
+    assert test_stack.is_empty() is True
+
+    test_stack = Stack()
+    test_stack.push("apple")
+    assert test_stack.is_empty() is False

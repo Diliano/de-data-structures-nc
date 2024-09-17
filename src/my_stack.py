@@ -17,3 +17,6 @@ class Stack():
         del self.storage[self.quantity - 1]
         self.quantity -= 1
         return item_to_remove
+    
+    def is_empty(self):
+        return self.quantity == 0
