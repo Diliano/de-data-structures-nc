@@ -92,3 +92,26 @@ class TestUnionMethod():
         # Assert
         assert isinstance(result, Set)
         assert result._elements == expected
+
+class TestIntersectionMethod():
+    def test_intersection_method_returns_set_containing_elements_that_appear_in_both_original_and_given_iterable(self):
+        # Arrange
+        test_set = Set(["apple", "banana", "orange", "pear"])
+        test_input = ["apple", "kiwi", "orange", "grape"]
+        expected = ["apple", "orange"]
+        # Act
+        result = test_set.intersection(test_input)
+        # Assert
+        assert isinstance(result, Set)
+        assert result._elements == expected   
+
+    def test_intersection_method_returns_empty_set_if_there_are_no_common_elements(self):
+        # Arrange
+        test_set = Set(["apple", "banana"])
+        test_input = ["orange", "grape"]
+        expected = []
+        # Act
+        result = test_set.intersection(test_input)
+        # Assert
+        assert isinstance(result, Set)
+        assert result._elements == expected   

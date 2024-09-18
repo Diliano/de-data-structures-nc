@@ -20,3 +20,10 @@ class Set():
         union_set = Set(self._elements)
         union_set.update(input_set)
         return union_set
+    
+    def intersection(self, iterable):
+        intersection_set = Set()
+        for element in self._elements:
+            if element in iterable:
+                intersection_set.add(element)
+        return intersection_set
