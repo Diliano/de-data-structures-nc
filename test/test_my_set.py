@@ -71,7 +71,7 @@ class TestDiscardMethod():
         assert test_set._elements == ["apple", "banana"]
 
 class TestUnionMethod():
-    def test_union_method_returns_set_containing_elements_from_original_set_and_given_set(self):
+    def test_union_method_returns_set_containing_elements_from_original_set_and_given_iterable(self):
         # Arrange
         test_set = Set(["apple", "banana"])
         test_input = ["orange", "pear"]

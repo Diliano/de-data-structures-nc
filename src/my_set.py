@@ -16,9 +16,9 @@ class Set():
         if element in self._elements:
             self._elements.remove(element)
 
-    def union(self, input_set):
+    def union(self, iterable):
         union_set = Set(self._elements)
-        union_set.update(input_set)
+        union_set.update(iterable)
         return union_set
     
     def intersection(self, iterable):
