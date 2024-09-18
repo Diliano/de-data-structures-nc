@@ -55,3 +55,17 @@ class TestUpdateMethod():
         test_set.update(["apple", "apple", "banana", "orange", "apple", "banana"])   
         # Assert
         assert test_set._elements == ["apple", "banana", "orange"]
+
+class TestDiscardMethod():
+    def test_discard_method_discards_specified_element_from_set(self):
+        # Arrange
+        test_set = Set(["apple", "banana"])
+        # Act
+        test_set.discard("banana")
+        # Assert
+        assert test_set._elements == ["apple"]
+
+    def test_discard_method_does_nothing_if_element_does_not_exit(self):
+        test_set = Set(["apple", "banana"])
+        test_set.discard("orange") # No error thrown 
+        assert test_set._elements == ["apple", "banana"]

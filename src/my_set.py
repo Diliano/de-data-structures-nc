@@ -11,3 +11,7 @@ class Set():
     def update(self, iterable):
         for element in iterable:
             self.add(element)
+
+    def discard(self, element):
+        if element in self._elements:
+            self._elements.remove(element)
