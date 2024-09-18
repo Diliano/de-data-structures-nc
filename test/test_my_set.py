@@ -26,3 +26,20 @@ class TestAddMethod():
         test_set.add("apple")   
         # Assert
         assert test_set._elements == ["apple"]
+
+class TestUpdateMethod():
+    def test_update_method_adds_multiple_items_from_an_iterable_to_the_set(self):
+        # Arrange
+        test_set = Set()
+        # Act
+        test_set.update(["apple", "banana", "orange"])   
+        # Assert
+        assert test_set._elements == ["apple", "banana", "orange"]
+
+    def test_update_method_does_not_add_duplicates_from_an_iterable_to_the_set(self):
+        # Arrange
+        test_set = Set()
+        # Act
+        test_set.update(["apple", "apple", "banana", "orange", "apple", "banana"])   
+        # Assert
+        assert test_set._elements == ["apple", "banana", "orange"]
