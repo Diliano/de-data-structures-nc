@@ -27,3 +27,10 @@ class Set():
             if element in iterable:
                 intersection_set.add(element)
         return intersection_set
+    
+    def difference(self, iterable):
+        difference_set = Set()
+        for element in self._elements:
+            if element not in iterable:
+                difference_set.add(element)
+        return difference_set

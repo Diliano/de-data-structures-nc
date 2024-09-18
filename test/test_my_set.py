@@ -115,3 +115,26 @@ class TestIntersectionMethod():
         # Assert
         assert isinstance(result, Set)
         assert result._elements == expected   
+
+class TestDifferenceMethod():
+    def test_difference_method_returns_set_containing_elements_from_existing_set_that_are_not_in_given_iterable(self):
+        # Arrange
+        test_set = Set(["apple", "banana", "orange", "pear"])
+        test_input = ["apple", "kiwi", "orange", "grape"]
+        expected = ["banana", "pear"]
+        # Act
+        result = test_set.difference(test_input)
+        # Assert
+        assert isinstance(result, Set)
+        assert result._elements == expected  
+
+    def test_difference_method_returns_empty_set_if_all_elements_from_existing_set_are_in_given_iterable(self):
+        # Arrange
+        test_set = Set(["apple", "kiwi", "pear"])
+        test_input = ["apple", "kiwi", "orange", "pear"]
+        expected = []
+        # Act
+        result = test_set.difference(test_input)
+        # Assert
+        assert isinstance(result, Set)
+        assert result._elements == expected  
