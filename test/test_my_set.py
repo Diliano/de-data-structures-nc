@@ -69,3 +69,26 @@ class TestDiscardMethod():
         test_set = Set(["apple", "banana"])
         test_set.discard("orange") # No error thrown 
         assert test_set._elements == ["apple", "banana"]
+
+class TestUnionMethod():
+    def test_union_method_returns_set_containing_elements_from_original_set_and_given_set(self):
+        # Arrange
+        test_set = Set(["apple", "banana"])
+        test_input = ["orange", "pear"]
+        expected = ["apple", "banana", "orange", "pear"]
+        # Act
+        result = test_set.union(test_input) 
+        # Assert 
+        assert isinstance(result, Set)
+        assert result._elements == expected
+
+    def test_union_method_returns_set_without_duplicates(self):
+        # Arrange
+        test_set = Set(["apple", "banana"])
+        test_input = ["orange", "pear", "apple"]
+        expected = ["apple", "banana", "orange", "pear"]
+        # Act
+        result = test_set.union(test_input)
+        # Assert
+        assert isinstance(result, Set)
+        assert result._elements == expected

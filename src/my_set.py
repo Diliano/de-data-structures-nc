@@ -15,3 +15,8 @@ class Set():
     def discard(self, element):
         if element in self._elements:
             self._elements.remove(element)
+
+    def union(self, input_set):
+        union_set = Set(self._elements)
+        union_set.update(input_set)
+        return union_set
