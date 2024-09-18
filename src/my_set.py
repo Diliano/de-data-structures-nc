@@ -1,6 +1,8 @@
 class Set():
-    def __init__(self):
+    def __init__(self, elements=None):
         self._elements = []
+        if elements:
+            self.update(elements)
 
     def add(self, element):
         if element not in self._elements:

@@ -9,6 +9,18 @@ class TestInstantiation():
         test_set = Set()
         assert test_set._elements == []
 
+    def test_instantiates_set_with_single_given_element(self):
+        test_set = Set(["apple"])
+        assert test_set._elements == ["apple"]
+
+    def test_instantiates_set_with_given_iterable_elements(self):
+        test_set = Set(["apple", "banana"])
+        assert test_set._elements == ["apple", "banana"]
+
+    def test_instantiates_set_without_adding_duplicates(self):
+        test_set = Set(["apple", "banana", "apple", "banana"])
+        assert test_set._elements == ["apple", "banana"]
+
 class TestAddMethod():
     def test_add_method_adds_an_item_to_the_set(self):
         # Arrange
