@@ -1,3 +1,13 @@
+class QueueFullError(Exception):
+    def __init__(self):
+        self.message = "Queue is full"
+        super().__init__(self.message)
+
+class QueueEmptyError(Exception):
+    def __init__(self):
+        self.message = "Queue is empty"
+        super().__init__(self.message)
+
 class Queue():
     """
     max_size is optional and where not provided by the user, it will 
@@ -11,13 +21,13 @@ class Queue():
 
     def enqueue(self, item):
         if self.max_size is not None and len(self._storage) == self.max_size:
-            return "Queue is full"
+            raise QueueFullError
         self._storage[self._back] = item
         self._back += 1
 
     def dequeue(self):
         if len(self._storage) == 0:
-            return "Queue is empty"
+            raise QueueEmptyError
         del self._storage[self._front]
         self._front += 1
 

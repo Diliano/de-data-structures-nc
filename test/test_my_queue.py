@@ -1,4 +1,5 @@
-from src.my_queue import Queue
+from src.my_queue import Queue, QueueFullError, QueueEmptyError
+import pytest
 
 class TestInstantiation:
     def test_instance_is_instance_of_class_queue(self):
@@ -56,7 +57,9 @@ class TestEnqueueMethod:
         test_queue.enqueue("apple")
         test_queue.enqueue("banana")
         # Assert
-        assert test_queue.enqueue("orange") == "Queue is full"
+        with pytest.raises(QueueFullError) as excinfo:
+            test_queue.enqueue("orange")
+        assert str(excinfo.value) == "Queue is full"
 
 class TestDequeueMethod:
     def test_dequeue_method_removes_item_from_front_of_queue(self):
@@ -93,7 +96,9 @@ class TestDequeueMethod:
 
     def test_dequeue_method_returns_message_if_queue_is_empty(self):
         test_queue = Queue()
-        assert test_queue.dequeue() == "Queue is empty"
+        with pytest.raises(QueueEmptyError) as excinfo:
+            test_queue.dequeue()
+        assert str(excinfo.value) == "Queue is empty"
 
 class TestGetQuantityMethod:
     def test_get_quantity_method_returns_0_if_queue_is_empty(self):
