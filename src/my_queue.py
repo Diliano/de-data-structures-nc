@@ -39,3 +39,9 @@ class Queue():
     
     def is_full(self):
         return len(self._storage) == self.max_size
+    
+    def find_key_of(self, value):
+        for position in self._storage:
+            if self._storage[position] == value:
+                return position
+        raise ValueError("Value is not currently in the queue")

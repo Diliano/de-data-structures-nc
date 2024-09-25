@@ -150,3 +150,26 @@ class TestIsFullMethod:
         test_queue.enqueue("apple")
         # Assert
         assert test_queue.is_full() == False
+
+class TestFindKeyOfMethod:
+    def test_returns_key_of_given_value_in_queue(self):
+        # Arrange
+        test_queue = Queue()
+        # Act
+        test_queue.enqueue("apple")
+        test_queue.enqueue("banana")
+        test_queue.enqueue("orange")
+        # Assert
+        assert test_queue.find_key_of("banana") == 1
+
+    def test_raises_value_error_exception_if_not_in_queue(self):
+        # Arrange
+        test_queue = Queue()
+        # Act
+        test_queue.enqueue("apple")
+        test_queue.enqueue("banana")
+        test_queue.enqueue("orange")
+        # Assert
+        with pytest.raises(ValueError) as excinfo:
+            test_queue.find_key_of("pear")
+        assert str(excinfo.value) == "Value is not currently in the queue"
