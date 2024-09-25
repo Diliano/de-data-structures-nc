@@ -1,4 +1,8 @@
 class Queue():
+    """
+    max_size is optional and where not provided by the user, it will 
+    default to None (no maximum size)
+    """
     def __init__(self, max_size=None):
         self.max_size = max_size
         self._front = 0
